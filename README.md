@@ -1,24 +1,52 @@
-# README
+# ELANCE JobPortal (in development)
+# RoR integrating Semantic-ui layouts and components.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- BACK -
+OpenVZ VPS 6GB (London)
+Debian 8.9
+Apache/2.4.10
+Phusion-Passenger 5.1.11
+mysql 14.14 Distrib 5.5.58, for debian-linux-gnu (x86_64) using readline 6.3
+ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-linux]
+rails 5.1.4
+rvm 1.29.3
 
-Things you may want to cover:
+- IDE -
+SmarTTY
+WinSCP
+SublimeText
+UltraEdit
+MySQL WorkBench 6.3
+PhpMyAdmin
+PhotoShop
+...
 
-* Ruby version
+- FRONT - 
+gem 'bcrypt'
+gem 'devise'
+gem 'semantic-ui-sass'
 
-* System dependencies
 
-* Configuration
+# Description
+RoR Webportal integrating semantic-ui, initially based on: 
+https://www.youtube.com/channel/UCB61JUulUDUhglJNFcLnRmA course 
+and https://github.com/muhibbudins/moderns semantic-ui pages.
 
-* Database creation
+# Features
+User registration and login
+Blog
+TopNavBar
+About and initial pages
+Gigs, proposals and skills functionalities 
 
-* Database initialization
+# Installation and configuration
+Install RoR
+Download and copy or replicate repository in a new folder (elance) of your workspace
+Execute bundle install and bundle update
+Create database and insert database.yml and secretes.yml in /config folder
+Configure database.yml connection
+Execute rails db:schema:load to build up database tables and associations.
+In principle this six steps will allow you to work on the website, creating new users and gigs.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Live demo
+http://185.117.22.166:8909/blog
