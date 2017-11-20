@@ -1,6 +1,6 @@
 <style type="text/css">
     body {
-      background-color: #DADADA;
+      background-color: #DDDDDD;
     }
     body > .grid {
       height: 90%;
@@ -69,7 +69,7 @@
         </div>
         <div class="field">
           <%= f.label :email %>
-          <%= f.email_field :email, placeholder: "your email address" %>
+          <%= f.email_field :email %>
         </div>  
         <div class="field">
     	  <%= f.label :password %><% if @minimum_password_length %><small>(<%= @minimum_password_length %> characters minimum)</small>
@@ -80,16 +80,9 @@
     	  <%= f.label :password_confirmation %>
     	  <%= f.password_field :password_confirmation, autocomplete: "off" %>
   		</div>
-  	    <div class="ui center aligned disabled segment">
-    	  <%= f.submit "Sign up", :class => 'ui teal button' %>
-		</div><!-- ./dissabled -->
-  	<% end %>  
-  	  </div><!-- ./stacked -->
-  	</div><!-- ./form -->
-	</div><!-- ./grid -->
-  </div><!-- ./column -->
-</div><!-- ./grid -->
 
+    	  <%= f.submit "Sign up", :class => 'ui teal button' %>
+	
 
   
 

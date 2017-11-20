@@ -1,21 +1,30 @@
 	<!-- Navbar fixed top area -->
-	<div class="ui large teal inverted menu">
+	<div class="ui large inverted menu">
 		<div class="left menu">
-			<a href="" class="icon item logo" id="trigger"><i class="sidebar icon"></i></a>
-			<a href="" class="active item">Home</a>
-			<a href="/portfolio" class="item">Portofolio</a>
-			<a href="/home" class="item logo">Logo</a>
-			<a href="/blog" class="item">Blog</a>
-			<a href="/about" class="item">About</a>
-		</div>
-		<div class="item">
-      </div>
+			<a href="/" class="icon item logo" id="trigger"><i class="sidebar icon"></i></a>
+			<a href="/" class="active item">Home</a>
+			<!--<a href="/portfolio" class="item">Portofolio</a>-->
+			<a href="/gigs" class="item">Browse Gigs &raquo;</a>
+			<a href="/blog" class="mini item">Blog</a>
+			<a href="/portfolio" class="mini item">Portfolio</a>
+			<a href="/about" class="mini item">About</a>
+		</div><!-- ./left -->
+		<div class="item"></div>
+		
+		<div class="ui mini fluid aligned middle category search item">
+          <div class="ui icon input">
+            <input class="prompt" type="text" placeholder="Search...">
+            <i class="search icon"></i>
+          </div>
+      	</div><!-- ./search -->
+      
       <div class="right menu">
       <% if user_signed_in? %>
-      	<%= link_to current_user.username, edit_user_registration_path, :class=>'mini item' %>
-        <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, :class=>'item' %>
+      	<%= link_to 'New GIG &raquo;'.html_safe, new_gig_path, :class=>'item'  %>
+      	<%= link_to current_user.username, edit_user_registration_path, {:class=>'mini item', :style => 'color:#ffffaa;font-style:italic;font-weight: bold;'} %>
+        <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, :class=>'mini item' %>
     <% else %>
-    	<div class='item'><b><i>Guest</i></b></div>
+    	<div class='item' style='color:#ffff00;'><b><i><small>Guest</small></i></b></div>
         <%= link_to 'Sign up', new_user_registration_path, :class=>'item' %>
         <%= link_to 'Sign in', new_user_session_path, :class=>'item' %>
     <% end %> 

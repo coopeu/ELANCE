@@ -1,7 +1,7 @@
-<h2 class="ui left aligned gig header">Index of Gigs</h2>
+<h2 class="ui left aligned gig header">Gig <%= @gig.name %></h2>
 
 	<!-- Content area -->
-	<div class="ui container content">
+	<div class="ui container content" style='height=80%;'>
 		<div class="ui stackable doubling grid">
 			<!-- Middle Content -->
 			<div class="twelve wide column">
@@ -10,24 +10,26 @@
 					<div class="ui items">
 						<div class="item" align="left">
 							<div class="content">
-								<a class="header">Introduction About System JS</a>
+								<a class="header"><%= @gig.location %></a>
 								<div class="description" align="justify">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi vel, itaque ipsum iste ex. Quam reiciendis voluptatem reprehenderit natus aliquam dolore laudantium eaque praesentium ipsum itaque repellendus, nulla at error.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, nihil consequatur! Vero illum illo, nesciunt, tempora accusamus praesentium sunt...</p>
+									<p><%= @gig.description %></p>
 								</div>
 							</div>
 						</div><!-- item left -->
 						<div class="ui divider"></div>
 						<div class="item" align="left">
 							<div class="image">
-								<img src="images/400x400.png">
+								<img src="/images/400x400.png">
 							</div>
 							<div class="content">
-								<a class="header">Learn About Angular 2 - Part 1</a>
+								<p class="ui mini">Submitted by <%= link_to @gig.user.username, gigs_path(@gig) %> 
+								<!--#user_path(@gig.user) -->
+								on <%= @gig.created_at.strftime("%m/%d/%Y") %></p>
 								<div class="meta">
-									<span><i class="calendar icon"></i> 10/04/2016 <i class="tag icon"></i> Javascript <i class="user icon"></i> Muhibbudin Suretno</span>
+									<span><i class="calendar icon"></i><%= @gig.created_at.strftime("%m/%d/%Y") %> <i class="tag icon"></i> <%= @gig.category_id %> <i class="user icon"></i> <%= @gig.user_id %></span>
 								</div>
 								<div class="description" align="justify">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi vel, itaque ipsum iste ex. Quam reiciendis voluptatem reprehenderit natus aliquam dolore laudantium eaque praesentium ipsum itaque repellendus, nulla at error.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, nihil consequatur! Vero illum illo, nesciunt, tempora accusamus praesentium sunt...</p>
+									<p>sectetur adipisicing elit. Perspiciatis, nihil consequatur! Vero illum illo, nesciunt, tempora accusamus praesentium sunt...</p>
 								</div>
 							</div>
 						</div><!-- item left -->
@@ -39,23 +41,14 @@
 									<span><i class="calendar icon"></i> 10/04/2016 <i class="tag icon"></i> Javascript <i class="user icon"></i> Muhibbudin Suretno</span>
 								</div>
 								<div class="description" align="justify">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi vel, itaque ipsum iste ex. Quam reiciendis voluptatem reprehenderit natus aliquam dolore laudantium eaque praesentium ipsum itaque repellendus, nulla at error.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, nihil consequatur! Vero illum illo, nesciunt, tempora accusamus praesentium sunt...</p>
+									<p>ciunt, tempora accusamus praesentium sunt...</p>
 								</div>
 							</div>
 						</div><!-- ./item left -->
 					</div><!-- ./items -->
 
 					<div class="ui divider"></div>
-					<div class="ui buttons">
-						<button class="ui button disabled">Previous</button>
-						<button class="ui teal button">1</button>
-						<button class="ui button">2</button>
-						<button class="ui button">3</button>
-						<button class="ui button">...</button>
-						<button class="ui button">n</button>
-						<button class="ui button">Next</button>
-					</div>
-				</div>
+				</div><!-- ./center -->	
 			</div><!-- ./twelve wide column left-Center Content -->
 
 			<!-- Right Sidebar -->

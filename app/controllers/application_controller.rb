@@ -3,6 +3,9 @@ class ApplicationController < ActionController::Base
 
 	before_action :configure_permitted_parameters, if: :devise_controller?
 
+	semantic_breadcrumb :index, :root_path
+
+
 	protected
 
 	def configure_permitted_parameters
