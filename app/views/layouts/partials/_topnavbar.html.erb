@@ -13,7 +13,11 @@
 		
 		<div class="ui mini fluid aligned middle category search item">
           <div class="ui icon input">
-            <input class="prompt" type="text" placeholder="Search...">
+          <%= form_tag gigs_path, method: :get do %>	
+          <%= text_field_tag :term, params[:term], placeholder: 'Search...', class: 'prompt' %>
+          <%= submit_tag 'Search', name: nil, class:'' %>
+          <% end %>  
+            <!--<input class="" type="text" placeholder="Search...">-->
             <i class="search icon"></i>
           </div>
       	</div><!-- ./search -->

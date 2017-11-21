@@ -1,37 +1,36 @@
 <h2 class="ui left aligned gig header">Index of Gigs</h2>
 
-	<!-- Content area -->
-	<div class="ui container content">
-		<table class="ui celled padded table">
+	<!-- Content area 
+	<div class="ui container content" style='margin=5;padding=5;'>-->
+		<!--ui celled padded table-->
+		<table class="ui table" id="DataTable" style='cellmargin:5;cellpadding:5; margin:5;padding:5;'>
 		  <thead>
-		    <tr><th class="single line">Title</th>
-		    <th class="single line">Location</th>
-		    <th class="single line">Budget</th>
-		    <th class="single line">Category</th>
-		    <th class="single line">Author</th>
- 		    <th>Description</th>
+		    <tr><th class="single line"><h3>Title</h3></th>
+		    <th class="single line"><h4>Location</h4></th>
+		    <th class="single line"><h4>Budget</h4></th>
+		    <th class="single line"><h4>Category</h4></th>
+		    <th class="single line"><h4>Author</h4></th>
+ 		    <th><h4>Description</h4></th>
 		  </tr></thead>
 		  
 		  <tbody><% @gigs.each do |g| %>		  
 		    <tr>
 		      <td>
-		        <h4 class="ui center aligned header"><div class='ui medium header'><%= link_to g.name, gig_path(g), :class => "" %></div></h4>
-		      </td>
-		      <td class="single line">
-		        <%= g.location %>
-		      </td>
-		      <td>
-		        <div class="right aligned"><%= g.budget %></div>
-		      </td>
-		      <td> <%= g.category.name %>
-		      </td>
-		      <td><%= g.user.username %></td>
-		      </td>
-		      <td><%= g.description %></td>
+		        <h4 class="ui left mini aligned header"><%= link_to g.name, gig_path(g), :class => "" %></h4></td>
+		      <td class="single line"><h5><%= g.location %></h5></td>
+		      <td><div class="right aligned"><h5><%= g.budget %></h5></div></td>
+		      <td><h5><%= g.category.name %></h5></td>
+		      <td><h5><%= g.user.username %></h5></td>
+		      <td><h5><%= g.description %></h5></td>
 		    </tr>
 		    <% end %>
 		  </tbody>
 		</table>
-	</div><!-- ./container -->
 
+	
+	<div class="ui container center aligned content"'>
+	<h4><%= paginate @gigs %></h4>
+
+
+	</div><!-- ./container -->
 

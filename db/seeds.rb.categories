@@ -1,0 +1,7 @@
+Category.where(name: 'Web Development').first_or_create(name: 'Web Development')
+Category.where(name: 'Front End').first_or_create(name: 'Front End')
+Category.where(name: 'Web testing').first_or_create(name: 'Web testing')
+Category.where(name: 'Back End').first_or_create(name: 'Back End')
+Category.where(name: 'Design').first_or_create(name: 'Design')
+Category.where(name: 'Financial').first_or_create(name: 'Financial')
+

@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20171120160830) do
     t.datetime "updated_at", null: false
     t.bigint "category_id", default: 1
     t.bigint "user_id", default: 1
-    t.float "latitude"
-    t.float "longitude"
+    t.float "latitude", limit: 24
+    t.float "longitude", limit: 24
     t.index ["category_id"], name: "index_gigs_on_category_id"
     t.index ["user_id"], name: "index_gigs_on_user_id"
   end

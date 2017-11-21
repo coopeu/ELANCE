@@ -2,11 +2,17 @@ class GigsController < ApplicationController
 	  before_action :set_gig, only: [:show, :edit, :update, :destroy]
 	  before_action :authenticate_user!, except: [:index, :show]
 
-semantic_breadcrumb :index, :gigs_path
+    semantic_breadcrumb :index, :gigs_path
 
 	def index
-		@gigs = Gig.all
-	end	
+#    @gigs = Gig.search[term].order('created_at DESC').page(params[:page]).per(10)
+
+#    @gigs = if params[:term]
+      @gigs = Gig.search(params[:term]).order('created_at DESC').page(params[:page]).per(10)
+#    else
+#		  @gigs = Gig.all.order('created_at DESC').page(params[:page]).per(25)
+#	  end 
+  end	
 
 	def show
 		@gigs = Gig.all 
@@ -56,7 +62,9 @@ semantic_breadcrumb :index, :gigs_path
     end
   end
 
-
+  def search
+    @gigs = Gig.search[term].page(params[:page]).per(10)
+  end
 
 	private
 
@@ -66,7 +74,7 @@ semantic_breadcrumb :index, :gigs_path
   end
 
 	def gig_params
-		params.require(:gig).permit(:name, :description, :budget, :location, :category_id, :user_id)
+		params.require(:gig).permit(:name, :description, :budget, :location, :category_id, :user_id, :search)
 	end
 
   def current_user?(user)

@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   devise_for :users
-	resources :gigs, :pages
+	resources :gigs, :pages do 
+		collection do
+			get :search
+		end
+	end
+
 	root 'gigs#index'
 
 	get 'home', to: 'pages#index' 

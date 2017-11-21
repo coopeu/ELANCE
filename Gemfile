@@ -32,7 +32,7 @@ gem 'bcrypt'
 gem 'devise'
 gem 'semantic-ui-sass'
 gem 'geocoder'
-
+gem 'kaminari'
 
 
 group :development, :test do

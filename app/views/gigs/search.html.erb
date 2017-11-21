@@ -1,0 +1,82 @@
+<h2 class="ui left aligned gig header">Gig <%= @gig.name %></h2>
+
+	<!-- Content area -->
+	<div class="ui container content" style='height=80%;'>
+		<div class="ui stackable doubling grid">
+			<!-- Middle Content -->
+			<div class="twelve wide column">
+				<div align="center">
+					<div class="ui divider"></div>
+					<div class="ui items">
+						<div class="item" align="left">
+							<div class="content">
+								<a class="header"><%= @gig.location %></a>
+								<div class="description" align="justify">
+									<p><%= @gig.description %></p>
+								</div>
+							</div>
+						</div><!-- item left -->
+						<div class="ui divider"></div>
+						<div class="item" align="left">
+							<div class="image">
+								<img src="/images/400x400.png">
+							</div>
+							<div class="content">
+								<p class="ui mini">Submitted by <%= @gig.user.username %> <%#= @gig.user.username %>
+								<!--#user_path(@gig.user) -->
+								on <%= @gig.created_at.strftime("%m/%d/%Y") %></p>
+								<div class="meta">
+									<span><i class="calendar icon"></i><%= @gig.created_at.strftime("%m/%d/%Y") %> <i class="tag icon"></i> <%= @gig.category.name %> <i class="user icon"></i> <%= @gig.user.username %></span>
+								</div>
+								<div class="description" align="justify">
+									<p>sectetur adipisicing elit. Perspiciatis, nihil consequatur! Vero illum illo, nesciunt, tempora accusamus praesentium sunt...</p>
+								</div>
+							</div>
+						</div><!-- ./item -->
+					</div><!-- ./items -->
+
+					<div class="ui divider"></div>
+				</div><!-- ./center -->	
+			</div><!-- ./twelve wide column left-Center Content -->
+
+			<!-- Right Sidebar -->
+
+			<div class="four wide column">
+				<div class="ui fluid vertical menu moderns">
+					<a href="" class="header teal item">Category</a>
+					<a href="" class="item">Javascript</a>
+					<a href="" class="item">PHP</a>
+					<a href="" class="item">Angular</a>
+					<a href="" class="item">Semantic-UI</a>
+				</div>
+				<div class="ui segments teal moderns">
+					<div class="ui header segment">
+						Picture Article
+					</div>
+					<div class="ui segment">
+						<div class="owl-carousel" id="single-slider">
+						    <div class="item">
+						    	<p><img class="ui rounded image" src="images/400x400.png"></p>
+						    	<div align="justify">
+						    		<div class="ui header">Learn About Angular 2</div>
+						    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et perspiciatis velit ducimus, reiciendis eius dolor culpa, laudantium modi minus voluptatum eveniet beatae, aperiam totam praesentium aut doloribus nemo minima a.</p>
+						    	</div>
+						    </div>
+						    <div class="item">
+						    	<p><img class="ui rounded image" src="images/400x400.png"></p>
+						    	<div align="justify">
+						    		<div class="ui header">How to make Chat App</div>
+						    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus fugit nesciunt omnis impedit veniam. Inventore praesentium quas, rerum similique, voluptatibus sit dolorum, voluptatum, voluptate fugiat asperiores reprehenderit cupiditate unde quibusdam!</p>
+						    	</div>
+						    </div>
+						</div>
+					</div>
+					<div class="ui secondary segment">
+						Other Content
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+

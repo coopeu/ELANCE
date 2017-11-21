@@ -1,0 +1,9 @@
+
+#User.where(email: 'boc@example.com').first_or_create(email: 'boc@example.com', username: 'BocGreen', password: 'paswd')
+#User.where(email: 'bocaroba@example.com').first_or_create(email: 'bocaroba@example.com', username: 'bocaroba', password: 'paswd')
+
+User.create!([
+  {email: "testadmin@mvmanor.co.uk", username: 'BocGreen', password: "testadminuser", password_confirmation: "testadminuser", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:02:10", last_sign_in_at: "2015-02-06 14:02:10", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"},
+  {email: "testuser@mvmanor.co.uk", username: 'bocaroba', password: "testuseraccount", password_confirmation: "testuseraccount", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:03:01", last_sign_in_at: "2015-02-06 14:03:01", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"},
+  {email: "testcustomer@customer.co.uk", username: 'bocaroba', password: "testcustomeruser", password_confirmation: "testcustomeruser", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:03:44", last_sign_in_at: "2015-02-06 14:03:44", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"}
+])

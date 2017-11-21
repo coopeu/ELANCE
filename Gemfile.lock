@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/stympy/faker.git
+  revision: e48f79959186f52dcc0996564938d032f7626be1
+  branch: master
+  specs:
+    faker (1.8.4)
+      i18n (~> 0.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -60,8 +68,6 @@ GEM
       warden (~> 1.2.3)
     erubi (1.7.0)
     execjs (2.7.0)
-    faker (1.8.4)
-      i18n (~> 0.5)
     ffi (1.9.18)
     geocoder (1.4.4)
     globalid (0.4.1)
@@ -71,6 +77,18 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -92,7 +110,7 @@ GEM
     orm_adapter (0.5.0)
     puma (3.11.0)
     rack (2.0.3)
-    rack-test (0.8.0)
+    rack-test (0.8.2)
       rack (>= 1.0, < 3)
     rails (5.1.4)
       actioncable (= 5.1.4)
@@ -179,9 +197,10 @@ DEPENDENCIES
   byebug
   coffee-rails
   devise
-  faker
+  faker!
   geocoder
   jbuilder
+  kaminari
   listen
   mysql2
   puma
