@@ -1,6 +1,6 @@
 class GigsController < ApplicationController
 	  before_action :set_gig, only: [:show, :edit, :update, :destroy]
-	  before_action :authenticate_user!, except: [:index, :show]
+	  before_action :authenticate_user!, except: [:index, :show, :advsearch]
 
     semantic_breadcrumb :index, :gigs_path
 
@@ -66,7 +66,23 @@ class GigsController < ApplicationController
     @gigs = Gig.search[term].page(params[:page]).per(10)
   end
 
-	private
+  def advsearch
+    @gigs = Gig.all.page(params[:page]).per(10)
+    if params[:category].present?
+      @gigs = Gig.where(category_id: params[:category].to_i).page(params[:page]).per(10)
+      @gigs = gigs.where('name LIKE ? or description LIKE ? or location LIKE ?',"%#{term}%",'%#{term}%', "%#{term}%").order('created_at DESC').page(params[:page]).per(10) if params[:tearm].present?
+      @gigs = gigs.near(params[:location], 10).page(params[:page]).per(10) if params[:location].present?
+    else
+      @gigs = Gig.where('name LIKE ? or description LIKE ? or location LIKE ?',"%#{term}%",'%#{term}%', "%#{term}%").order('created_at DESC').page(params[:page]).per(10) if params[:tearm].present?     
+    end
+    @users = User.all
+    @user = User.find_by(:id=>:user_id)
+    @categories = Category.all
+    @category = Category.find_by(:id=>:category_id)
+  end
+	
+
+  private
 
 	# Use callbacks to share common setup or constraints between actions.
   def set_gig
@@ -74,7 +90,7 @@ class GigsController < ApplicationController
   end
 
 	def gig_params
-		params.require(:gig).permit(:name, :description, :budget, :location, :category_id, :user_id, :search)
+		params.require(:gig).permit(:name, :description, :budget, :location, :category_id, :user_id, :search, :latitude, :longitude)
 	end
 
   def current_user?(user)

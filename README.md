@@ -38,7 +38,7 @@ and https://github.com/muhibbudins/moderns semantic-ui pages.
 4. Create database and insert database.yml and secretes.yml in /config folder
 5. Configure database.yml connection
 6. Execute rails db:schema:load to build up database tables and associations.
-7. Execute rails db:seed to populate users, gigs, categories tables using Fake gem.
+7. Execute rails db:seed to populate users, gigs and categories tables using Fake gem.
 - In principle this 7 steps will allow you to work on the website, creating new users and gigs.
 
 ### Live demo

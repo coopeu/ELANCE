@@ -1,0 +1,10 @@
+require 'faker'
+
+100.times do |t| 
+	Gig.create(name: Faker::Name.title,  
+						description: Faker::Lorem.paragraph(2),
+						location: Faker::Address.city + ', ' + Faker::Address.country_code_long,
+						budget: rand(10..200)*100,
+						user_id: rand(1..4),
+						category_id: rand(1..8))
+end

@@ -1,0 +1,76 @@
+	<!-- Content area -->
+	<div class="ui container content" style='height=80%; width:100%; margin:0; padding:0;'>
+		<div class="ui stackable doubling grid" style='margin:0; padding:0;'>
+			<!-- Middle Content -->
+			<div class="twelve wide column">
+				<h2 class="ui left aligned gig header">Search</h2>
+				<div align="center">
+					<div class="ui items">
+						
+							<!-- Content area <div class="ui container content" style='margin=5;padding=5;'>-->
+							<!--ui celled padded table-->
+							<table class="ui small striped compact teal table">
+							<!-- style='margin:0 0 15 0;padding:0 0 15 0;'>-->
+							  <thead class="ui small striped compact teal table">
+							    <tr><th class="single line"><h4>Title</h4></th>
+							    <th class="single line center aligned"><h5>Location<BR/>
+							    Budget - Category - Author</h5></th>
+							    <th><h4>Description</h4></th>
+							  </tr></thead>
+							  
+							  <tbody><% @gigs.each do |g| %>		  
+							    <tr style='height: auto; padding: 0 0 0 0;'>
+							      <td>
+							        <h5 class="ui left mini aligned header"><%= link_to g.name, gig_path(g), :class => "" %></h5></td>
+							      <td class="single line center aligned"><h5><small><%= g.location %><BR/>
+							      	<%= g.budget %> - <%= g.category.name %> - <%= g.user.username %></small></h5></td>
+							      <td><h5 class="ui aligned mini header" style='text-align: justify;'><small><%= g.description %></small></h5></td>
+							    </tr>
+							    <% end %>
+							  </tbody>
+							</table>
+
+						
+						<div class="ui container center aligned content"'>
+						<h4><%= paginate @gigs %></h4>
+						</div><!-- ./container -->
+
+
+					</div><!-- ./items -->
+
+					<div class="ui teal divider"></div>
+				</div><!-- ./center -->	
+			</div><!-- ./twelve wide column left-Center Content -->
+
+			<!-- Right Sidebar -->
+
+			<div class="four wide compact column">
+
+				<div class="ui teal segments moderns" style='border: 1px solid teal;  border-radius: 5px;margin-bottom:50px;'>
+					<div class="ui header segment">Advance Search <i class='search icon'></i></div>
+						<div style='border: 3px solid teal;  border-radius: 5px;'>
+							<div class="ui raised teal segment" style='border: 1 teal;'>
+								<%= form_tag advsearch_path, method: :get, class: "ui form" do |f|  %>
+								<div class="ui field"><label>Category</label>
+								<%= select_tag :category, options_from_collection_for_select(Category.all, :id, :name, class: '') %></div>
+								<div class="ui field"><label>Search</label>
+								<%= text_field_tag :term, nil, placeholder: 'Location', class: '' %></div>
+								<!--<div class="ui field"><label>Location</label>
+								<%= text_field_tag :location, nil, placeholder: 'Location', class: '' %></div>-->
+								<div><%= submit_tag 'Search', class: "ui teal button" %></div>
+								<% end %>
+							</div><!-- ./segment -->
+					</div>
+				</div><!-- ./segments -->
+				<div class="ui fluid vertical compact menu moderns">
+					<a href="" class="header teal item">Category</a>
+					<a href="" class="item">Javascript</a>
+					<a href="" class="item">PHP</a>
+					<a href="" class="item">Angular</a>
+					<a href="" class="item">Semantic-UI</a>
+				</div><!-- ./fluid vertical -->
+			</div><!-- ./4wide col -->
+		</div><!-- ./stackable -->
+	</div><!-- ./container content -->
+
+

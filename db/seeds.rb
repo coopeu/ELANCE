@@ -49,17 +49,34 @@
 #  end
 #end
 
+#
+#    require 'faker'  
+#    # Create 15 posts
+#    100.times do
+#      Gig.create(
+#						name: Faker::Name.title,  
+#						description: Faker::Lorem.paragraph(2),
+#						location: Faker::Address.city + ', ' + Faker::Address.country_code_long,
+#						budget: rand(10..200)*100,
+#						user_id: rand(1..4),
+#						category_id: rand(1..8))
+#    end
+
 
     require 'faker'  
     # Create 15 posts
-    100.times do
+    153.times do
+    	#sleep 0.05
       Gig.create(
 						name: Faker::Name.title,  
 						description: Faker::Lorem.paragraph(2),
-						location: Faker::Address.city + ', ' + Faker::Address.country_code_long,
+						location: '',
+						latitude: '',
+						longitude: '', 
+						#location: Faker::Address.city + ', ' + Faker::Address.country_code_long,
+						#latitude: Faker::Address.latitude,
+						#longitude: Faker::Address.longitude, 
 						budget: rand(10..200)*100,
 						user_id: rand(1..4),
 						category_id: rand(1..8))
     end
-
-

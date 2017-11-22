@@ -1,6 +1,13 @@
-<h2 class="ui left aligned gig header">Index of Gigs</h2>
+<h2 class="ui left aligned gig header">Advanced search</h2>
 
-	<!-- Content area <div class="ui container content" style='margin=5;padding=5;'>-->
+
+        <%= render "layouts/shared/search" %>
+        <%= render "layouts/partials/flash" %>
+        <%= render "layouts/shared/main" %>
+
+
+	<!-- Content area 
+	<div class="ui container content" style='margin=5;padding=5;'>-->
 		<!--ui celled padded table-->
 		<table class="ui small striped compact teal table">
 		<!-- style='margin:0 0 15 0;padding:0 0 15 0;'>-->
@@ -30,5 +37,7 @@
 	
 	<div class="ui container center aligned content"'>
 	<h4><%= paginate @gigs %></h4>
+
+
 	</div><!-- ./container -->
 
