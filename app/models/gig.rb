@@ -13,7 +13,7 @@ class Gig < ActiveRecord::Base
 #		gigs = Gig.where('name LIKE ?', '%#{term}%').order('id DESC')
 #		gigs	
 #		if term
-    	where('name LIKE ? or description like ?', "%#{term}%",'%#{term}%')
+    	where('name LIKE ? or description LIKE ? or location LIKE ?',"%#{term}%",'%#{term}%', "%#{term}%")
 #  	else
 #    	all
 #  	end

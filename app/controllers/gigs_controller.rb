@@ -8,7 +8,7 @@ class GigsController < ApplicationController
 #    @gigs = Gig.search[term].order('created_at DESC').page(params[:page]).per(10)
 
 #    @gigs = if params[:term]
-      @gigs = Gig.search(params[:term]).order('created_at DESC').page(params[:page]).per(10)
+      @gigs = Gig.search(params[:term]).order('created_at DESC').page(params[:page]).per(25)
 #    else
 #		  @gigs = Gig.all.order('created_at DESC').page(params[:page]).per(25)
 #	  end 
