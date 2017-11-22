@@ -15,7 +15,7 @@
 SmarTTY. WinSCP. SublimeText. UltraEdit. MySQL WorkBench 6.3. PhpMyAdmin. PhotoShop. ...
 
 ### FRONT 
-gems: 'bcrypt', 'devise', 'semantic-ui-sass', ...
+gems: 'bcrypt', 'devise', 'semantic-ui-sass', 'faker', 'kaminari', 'geocoder', ...
 
 ### Description
 RoR Webportal integrating semantic-ui, initially based on: 
@@ -27,7 +27,9 @@ and https://github.com/muhibbudins/moderns semantic-ui pages.
 - Blog
 - TopNavBar
 - About and initial pages
-- Gigs, proposals and skills functionalities 
+- Gigs, proposals and skills functionalities
+- Pagination 
+- Search 
 
 ### Installation and configuration
 1. Install RoR
@@ -36,7 +38,8 @@ and https://github.com/muhibbudins/moderns semantic-ui pages.
 4. Create database and insert database.yml and secretes.yml in /config folder
 5. Configure database.yml connection
 6. Execute rails db:schema:load to build up database tables and associations.
-- In principle this six steps will allow you to work on the website, creating new users and gigs.
+7. Execute rails db:seed to populate users, gigs, categories tables using Fake gem.
+- In principle this 7 steps will allow you to work on the website, creating new users and gigs.
 
 ### Live demo
 http://185.117.22.166:8909/blog
