@@ -90,7 +90,7 @@ class GigsController < ApplicationController
   end
 
 	def gig_params
-		params.require(:gig).permit(:name, :description, :budget, :location, :category_id, :user_id, :search, :latitude, :longitude)
+		params.require(:gig).permit(:name, :description, :budget, :location, :category_id, :user_id, :search, :latitude, :longitude, :skill_list)
 	end
 
   def current_user?(user)

@@ -1,4 +1,4 @@
-  <h4 class="ui dividing center aligned header">Gig Information</h4>
+  <h4 class="ui dividing center aligned teal header">Job Information</h4>
 
   <%#= form_for @gig, as: @gig, url: new_gig_path(@gig) do |f| %>
 	<%#= form_with(model: gig, local: true) do |f| %>
@@ -16,33 +16,44 @@
       	<label><%= f.label :budget %></label>
         <%= f.text_field :budget, :placeholder => 'Budget', :class => 'field' %>
         <BR/><small>ex.: €12.000 or 1.500$</small> 
-      </div>
-    </div>
-  </div>
+      </div><!-- ./field -->
+    </div><!-- ./fields -->
+  </div><!-- ./field -->
 
   <div class="field">
     <div class="fields">
-      <div class="twelve wide field">
+      <div class="ten wide field">
        	<label><%= f.label :location %></label>
         <%= f.text_field :location, :placeholder => 'City, Country, State', :class => 'field' %>
-        <BR/><small>Ex. NewYork, Sabadell (Catalonia), Malta, ...</small> 
+        <BR/><small>Ex. Sabadell, Barcelona (Catalonia) ...</small> 
       </div>
-			<div class="four wide field">
+			<div class="six wide field">
 				<label>Category</label>
-				<%#= f.text_field :category%>
-		    <%#= f.select :category, Category.all.collect {|x| [x.name, x.id]}, {:include_blank => 'Select one'}, class:'form-control' %>
-  		</div>
-		</div>
-  </div>
+        <%= select_tag :category, options_from_collection_for_select(Category.all, :id, :name, class: '') %>
+  		</div><!-- ./field -->
+		</div><!-- ./fields -->
+  </div><!-- ./field -->
 
 	<div class="field">
-      <div class="twelve wide field">
+    <div class="fields">
+      <div class="sixteen wide field">
        	<label><%= f.label :description %></label>
         <%= f.text_area :description, :placeholder => 'Description of your gig', :class => 'field' %>
         <BR/><small></small> 
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-      </div>
-  </div>
+      </div><!-- ./field -->
+    </div><!-- ./fields -->
+  </div><!-- ./field -->
+
+  <div class="field">
+    <div class="fields">
+      <div class="ten wide field">
+        <label>List skills required for this job separated by comma.</label>
+        <%= f.text_area :skill_list, rows: 2, :placeholder => 'List of required skills separated by comma.', :class => 'field' %><small>Ex: php, sql, ruby, Node.js, Lynux,... </small><BR/> 
+      </div><!-- ./field -->
+    </div><!-- ./fields -->
+  </div><!-- ./field -->
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
 
 	<%= f.submit "Submit", :class => 'ui teal button' %>
 
