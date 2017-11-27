@@ -11,13 +11,14 @@ gem 'rails'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 # Use Puma as the app server
-gem 'puma'
+#gem 'puma'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+
+gem 'semantic-ui-sass'
+gem 'font-awesome-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails'

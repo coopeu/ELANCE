@@ -22,8 +22,8 @@
 							    <tr style='height: auto; padding: 0 0 0 0;'>
 							      <td>
 							        <h5 class="ui left mini aligned header"><%= link_to g.name, gig_path(g), :class => "" %></h5></td>
-							      <td class="single line center aligned"><h5><small><%= g.location %><BR/>
-							      	<%= g.budget %> - <%= g.category.name %> - <%= g.user.username %></small></h5></td>
+							      <td class="single line left aligned"><h5 style='font-family: arial;'><small><%= g.location %><BR/>
+							      	<b><%= g.budget %></b> - <%= g.category.name %> (<i><%= g.user.username %></i>)</small></h5></td>
 							      <td><h5 class="ui aligned mini header" style='text-align: justify;'><small><%= g.description %></small></h5></td>
 							    </tr>
 							    <% end %>

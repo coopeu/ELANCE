@@ -2,9 +2,9 @@
 	<div class="ui medium inverted teal menu">
 		<div class="left menu">
 			<a href="/" class="icon item logo" id="trigger"><i class="sidebar icon"></i></a>
-			<a href="/home" class="active item">Home</a>
-			<a href="/gigs" class="item">Browse Gigs &raquo;</a>
-      <a href="/advsearch" class="item">Search Gigs &raquo;</a>
+			<a href="/home" class="active item"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp;Home</a>
+			<a href="/gigs" class="item">Browse Jobs &raquo;</a>
+      <a href="/advsearch" class="item">Search Jobs &raquo;&raquo;</a>
 			<a href="/blog" class="mini item">Blog</a>
 			<a href="/portfolio" class="mini item">Portfolio</a>
 			<a href="/about" class="mini item">About</a>
@@ -26,10 +26,11 @@
       <div class="right menu">
       <% if user_signed_in? %>
       	<%= link_to 'New GIG &raquo;'.html_safe, new_gig_path, :class=>'item'  %>
+        <!--<i class="fa fa-user-o"></i>&nbsp;-->
       	<%= link_to current_user.username, edit_user_registration_path, {:class=>'mini item', :style => 'color:#ffffaa;font-style:italic;font-weight: bold;'} %>
         <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, :class=>'mini item' %>
     <% else %>
-    	<div class='item' style='color:#ffff00;'><b><i><small>Guest</small></i></b></div>
+    	<div class='item' style='color:#ffff00;'><b><i><small><i class="fa fa-user-o"></i>&nbsp;Guest</small></i></b></div>
         <%= link_to 'Sign up', new_user_registration_path, :class=>'item' %>
         <%= link_to 'Sign in', new_user_session_path, :class=>'item' %>
     <% end %> 

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/stympy/faker.git
-  revision: e48f79959186f52dcc0996564938d032f7626be1
+  revision: c972b0d791dd99d45058ba4fe625dbd27bb3fbe0
   branch: master
   specs:
     faker (1.8.4)
@@ -69,6 +69,8 @@ GEM
     erubi (1.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
     geocoder (1.4.4)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -108,7 +110,6 @@ GEM
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
-    puma (3.11.0)
     rack (2.0.3)
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
@@ -198,12 +199,12 @@ DEPENDENCIES
   coffee-rails
   devise
   faker!
+  font-awesome-rails
   geocoder
   jbuilder
   kaminari
   listen
   mysql2
-  puma
   rails
   sass-rails
   semantic-ui-sass

@@ -7,7 +7,7 @@
 		  <thead>
 		    <tr><th class="single line"><h4>Title</h4></th>
 		    <th class="single line"><h5>Location</h5></th>
-		    <th class="single line"><h5>Budget</h5></th>
+		    <th class="single line"><h5>Budget (€)</h5></th>
 		    <th class="single line"><h5>Category</h5></th>
 		    <th class="single line"><h5>Author</h5></th>
  		    <th><h4>Description</h4></th>
@@ -15,12 +15,12 @@
 		  
 		  <tbody><% @gigs.each do |g| %>		  
 		    <tr style='height: auto; padding: 0 0 0 0;'>
-		      <td>
-		        <h5 class="ui left mini aligned header"><%= link_to g.name, gig_path(g), :class => "" %></h5></td>
-		      <td class="single line"><h6><%= g.location %></h6></td>
-		      <td><div class="right aligned"><h6><%= g.budget %></h6></div></td>
-		      <td><h6><%= g.category.name %></h6></td>
-		      <td><h6><%= g.user.username %></h6></td>
+		      <td class="single line">
+		        <h5 class="ui left mini aligned header"><%= link_to g.name, gig_path(g), :class => "" %></h5></td><style='font-family:arial;'>
+		      <td><h5 style='font-family:arial;'><small><%= g.location %></small></h5></td>
+		      <td><div class="right aligned"><h5><%= g.budget %></h5></div></td>
+		      <td><h5 style='font-family:arial;'><small><%= g.category.name %></small></h5></td>
+		      <td><h5  style='font-family:arial;'><small><i><%= g.user.username %></small></i></h5></td>
 		      <td><h5 class="ui aligned mini header" style='text-align: justify;'><small><%= g.description %></small></h5></td>
 		    </tr>
 		    <% end %>

@@ -15,7 +15,7 @@
 SmarTTY. WinSCP. SublimeText. UltraEdit. MySQL WorkBench 6.3. PhpMyAdmin. PhotoShop. ...
 
 ### FRONT 
-gems: 'bcrypt', 'devise', 'semantic-ui-sass', 'faker', 'kaminari', 'geocoder', ...
+gems: 'bcrypt', 'devise', 'semantic-ui-sass', 'faker', 'kaminari', 'geocoder', 'font-awesome-rails', ...
 
 ### Description
 RoR Webportal integrating semantic-ui, initially based on: 
@@ -27,7 +27,7 @@ and https://github.com/muhibbudins/moderns semantic-ui pages.
 - Blog
 - TopNavBar
 - About and initial pages
-- Gigs, proposals and skills functionalities
+- Gigs, categories, proposals and skills functionalities
 - Pagination 
 - Search 
 

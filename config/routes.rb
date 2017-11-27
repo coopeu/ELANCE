@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users
-	resources :gigs, :pages do 
+  resources :pages
+	resources :gigs do
+		resources :proposals, except: :index  
 		collection do
 			get :search
 		end
