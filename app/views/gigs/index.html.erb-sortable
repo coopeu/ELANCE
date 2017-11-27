@@ -5,11 +5,11 @@
 		<table class="ui small striped compact teal table">
 		<!-- style='margin:0 0 15 0;padding:0 0 15 0;'>-->
 		  <thead>
-		    <tr><th class="single line"><h4><%= link_to 'Title', sort: :name %></h4></th>
-		    <th class="single line"><h5><%= link_to 'Location', sort: :location %></h5></th>
-		    <th class="single line"><h5><%= link_to 'Budget', sort: :budget %></h5></th>
-		    <th class="single line"><h5><%= link_to 'Category', sort: :category_id %></h5></th>
-		    <th class="single line"><h5><%= link_to 'Author', sort: :user_id %></h5></th>
+		    <tr><th class="single line"><h4>Title</h4></th>
+		    <th class="single line"><h5>Location</h5></th>
+		    <th class="single line"><h5>Budget</h5></th>
+		    <th class="single line"><h5>Category</h5></th>
+		    <th class="single line"><h5>Author</h5></th>
  		    <th><h4>Description</h4></th>
 		  </tr></thead>
 		  

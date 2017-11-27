@@ -4,11 +4,15 @@ class GigsController < ApplicationController
 
     semantic_breadcrumb :index, :gigs_path
 
+    #helper_method :sort_column, :sort_direction
+
 	def index
 #    @gigs = Gig.search[term].order('created_at DESC').page(params[:page]).per(10)
 
 #    @gigs = if params[:term]
-      @gigs = Gig.search(params[:term]).order('created_at DESC').page(params[:page]).per(25)
+#OK      @gigs = Gig.search(params[:term]).order('created_at DESC').page(params[:page]).per(25)
+      @gigs = Gig.search(params[:term]).order(params[:sort]).page(params[:page]).per(25)
+#     @gigs = Gig.search(params[:term]).(sort_colum,sort_direction).page(params[:page]).per(25)
 #    else
 #		  @gigs = Gig.all.order('created_at DESC').page(params[:page]).per(25)
 #	  end 
@@ -83,6 +87,13 @@ class GigsController < ApplicationController
 	
 
   private
+
+#  def sort_column
+#    params[:sort] || :name || 'name'
+#  end
+#  def sort_direction
+#    params[:direction] || 'ASC'
+#  end
 
 	# Use callbacks to share common setup or constraints between actions.
   def set_gig
