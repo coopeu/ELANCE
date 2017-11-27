@@ -1,0 +1,111 @@
+class ProposalsController < ApplicationController
+
+	def index
+    #1st you retrieve the gig thanks to params[:gig_id]
+    gig = Gig.find(params[:gig_id])
+    #2nd you get all the proposals of this gig
+    @proposals = gig.proposals
+
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+  end
+
+  # GET /gigs/:gig_id/proposals/:id
+  # GET /proposals/:id.xml
+  def show
+    #1st you retrieve the gig thanks to params[:gig_id]
+    gig = Gig.find(params[:gig_id])
+    #2nd you retrieve the proposal thanks to params[:id]
+    @proposal = gig.proposals.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+    end
+  end
+
+  def new
+    #1st you retrieve the gig thanks to params[:gig_id]
+    gig = Gig.find(params[:gig_id])
+    #2nd you build a new one
+    @proposal = gig.proposals.build
+
+    respond_to do |format|
+      format.html # new.html.erb
+    end
+  end
+
+  # GET /gigs/:gig_id/proposals/:id/edit
+  def edit
+    #1st you retrieve the gig thanks to params[:gig_id]
+    gig = Gig.find(params[:gig_id])
+    #2nd you retrieve the proposal thanks to params[:id]
+    @proposal = gig.proposals.find(params[:id])
+  end
+
+
+
+	def create
+		@gig = Gig.find(params[:gig_id])
+		@proposal = @gig.proposals.build(proposal_params)
+		@proposal.save
+		redirect_to @proposal.gig
+		#1st you retrieve the gig thanks to params[:gig_id]
+#   gig = Gig.find(params[:gig_id])
+#   #2nd you create the proposal with arguments in params[:proposal]
+#   @proposal = gig.proposals.create(params[:proposal])
+
+#   respond_to do |format|
+#     if @proposal.save
+#       #1st argument of redirect_to is an array, in order to build the correct route to the nested resource proposal
+#       format.html { redirect_to([@proposal.gig, @proposal], :notice => 'Proposal was successfully created.') }
+#     else
+#       format.html { render :action => "new" }
+#     end
+#   end
+	end
+
+
+  # PUT /gigs/:gig_id/proposals/:id
+  # PUT /gigs/:gig_id/proposals/:id.xml
+  def update
+    #1st you retrieve the gig thanks to params[:gig_id]
+    gig = Gig.find(params[:gig_id])
+    #2nd you retrieve the proposal thanks to params[:id]
+    @proposal = gig.proposals.find(params[:id])
+
+    respond_to do |format|
+      if @proposal.update_attributes(params[:proposal])
+        #1st argument of redirect_to is an array, in order to build the correct route to the nested resource proposal
+        format.html { redirect_to([@proposal.gig, @proposal], :notice => 'proposal was successfully updated.') }
+      else
+        format.html { render :action => "edit" }
+      end
+    end
+  end
+
+
+	# DELETE /gigs/:gig_id/proposals/1
+  # DELETE /gigs/:gig_id/proposals/1.xml
+  def destroy
+    #1st you retrieve the gig thanks to params[:gig_id]
+    gig = Gig.find(params[:gig_id])
+    #2nd you retrieve the proposal thanks to params[:id]
+    @proposal = gig.proposals.find(params[:id])
+    @proposal.destroy
+
+    respond_to do |format|
+      #1st argument reference the path /gigs/:gig_id/proposals/
+      format.html { redirect_to(gig_proposals_url) }
+    end
+  end
+
+
+
+	private
+
+	def proposal_params
+		params.require(:proposal).permit(:bid, :description)		
+	end
+
+end

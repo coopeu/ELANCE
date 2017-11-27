@@ -19,10 +19,12 @@ class GigsController < ApplicationController
   end	
 
 	def show
+    gig = Gig.find(params[:id])
 		@gigs = Gig.all 
 		@gig = Gig.find(params[:id])
     semantic_breadcrumb @gig.name, gig_path(@gig)
     # semantic_breadcrumb :show, gig_path(@gig)
+    #@proposal = gig.proposals.find(params[:id=>:gig_id])
     @users = User.all
     #@gigs = Gig.all
     @user = User.find_by(:id=>:user_id)

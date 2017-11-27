@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <bBid:</b>
+  <%= @proposal.bid %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @proposal.descrition %>
+</p>
+
+<!-- /posts/:post_id/comments/:id/edit -->
+<%= link_to 'Edit', edit_gig_proposal_path(@proposal.gig, @proposal) %> |
+<!-- /posts/:post_id/comments/ -->
+<%= link_to 'Back', gig_proposals_path(@proposal.gig) %>
