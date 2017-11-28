@@ -1,4 +1,4 @@
-class ProposalsController < ApplicationController
+class Gigs::ProposalsController < ApplicationController
 
   def create
     @gig = Gig.find(params[:gig_id])

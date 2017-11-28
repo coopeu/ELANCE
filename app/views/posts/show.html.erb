@@ -1,21 +1,82 @@
-<p id="notice"><%= notice %></p>
+	<!-- Content area -->
+	<div class="ui container content">
+		<div class="ui stackable doubling grid">
+			<!-- Middle Content -->
+			<div class="twelve wide column">
+				<div align="center">
+					<p id="notice"><%= notice %></p>
+					<div class="ui divider"></div>
+					<div class="ui items">
+						<div class="item" align="left">
+							<div class="image">
+								<img src="/images/400x400.png">
+							</div>
+							<div class="content">			
+								<div class="ui teal large header"><strong> <%= @post.title %></strong></div>
+								<div class="meta">
+									<span><i class="calendar icon"></i> 10/04/2016 <i class="tag icon"></i> Javascript <i class="user icon"></i>  <strong>Author:</strong> 
+									  <%= @post.name %></span>
+								</div>
+								<div class="description" align="justify"><strong>Content:</strong>
+									<p>
+									  <%= @post.content %>
+									</p>
+								</div>
+								<div class="extra center aligned">
+										<!-- /posts/:post_id/comments/ -->
+									<%= link_to 'Edit', edit_post_path(@post), class: 'ui teal center floated button' %> 
+									<%= link_to 'Back', posts_path, class: 'ui teal floated button' %>
+								</div>					
+							</div><!-- ./content -->		
+						</div><!-- ./item -->
 
-<p>
-  <strong>Name:</strong>
-  <%= @post.name %>
-</p>
+						<div class="ui divider"></div>
+						<% @comments.each do |c| %>
+						<div class="item" align="left">
+							<p><i class="user icon"></i>   <strong><i> <%= c.commenter %></i></strong> </p>
+							<p>&nbsp;&nbsp;&nbsp;   Comment: <strong>&nbsp;<%= c.body %></strong></p>
+						</div><!-- ./item -->	
+						<% end %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+						<div class="item" align="left">
+							<div class="content">
+									<%= link_to 'New comment', new_post_comment_path(@post), class: 'ui teal floated button' %> 
+							</div><!-- ./content -->
+						</div><!-- ./item -->
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+					</div><!-- ./items -->
+				</div><!-- ./center -->
+			</div><!-- ./twelve wide column left-Center Content -->
 
-<!-- /posts/:post_id/comments/ -->
-<%= link_to 'Comments', post_comments_path(@post) %> |
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+			<!-- Right Sidebar -->
+
+			<div class="four wide column">
+				<div class="ui segments teal moderns">
+					<div class="ui teal segment">
+						<div class="ui header segment">New Comment</div>
+<%#= form_with url: post_comments_path([@post]) do |f| %>
+<%= form_for ([@post, Comment.new]) do |f| %>
+<%#= form_for ([@post, @comment]) 		<%#= form_for :proposal, url: als_path(@gig) do |f| %>	
+<%#= form_for @comment, url: nts_path(@post), method: |f| %>
+<%#= form_for([@comment.post,  do |f| %>
+<%#= simple_form_for @comment.post, comments_path do |f| %>
+<%#= render 'shared/error_messages', object: f.object %>
+											<%= hidden_field_tag :post_id, @post.id %>
+											<%= f.label :commenter %>
+ 											<%= f.text_field :commenter, label: 'commenter', placeholder: "Your name", error: false %><BR />
+ 											<label>Comment:</label>
+ 											<%= f.text_area :body, label: false, placeholder: "add comment", error: false, rows: 5, columns: 80 %>
+ 											<%= f.submit "Submit", class: 'ui teal left floated button' %>
+										  <%#= collection_select(:comment, :post_id, Post.all, :id,:commenter, :body) %>
+										  <%#= submit_tag 'Save' %>
+										<% end %>
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+

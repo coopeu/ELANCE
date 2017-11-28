@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class Posts::CommentsController < ApplicationController
   # GET /posts/:post_id/comments
   def index
     #1st you retrieve the post thanks to params[:post_id]
@@ -26,13 +26,11 @@ class CommentsController < ApplicationController
   # GET /posts/:post_id/comments/new
   def new
     #1st you retrieve the post thanks to params[:post_id]
-    post = Post.find(params[:post_id])
+    #post = Post.find(params[:post_id])
     #2nd you build a new one
-    @comment = post.comments.build
-
-    respond_to do |format|
-      format.html # new.html.erb
-    end
+    #@comment = post.comments.build
+    @post = Post.find(params[:post_id])
+    @comment = Comment.new
   end
 
   # GET /posts/:post_id/comments/:id/edit
@@ -46,14 +44,17 @@ class CommentsController < ApplicationController
   # POST /posts/:post_id/comments
   def create
     #1st you retrieve the post thanks to params[:post_id]
-    post = Post.find(params[:post_id])
+    @post = Post.find(params[:post_id])
     #2nd you create the comment with arguments in params[:comment]
-    @comment = post.comments.create(params[comment_params])
+    #@comment = post.comments.create(params[comment_params])
+    @comment = Comment.new(comment_params)
+    @comment.post = @post
 
     respond_to do |format|
       if @comment.save
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource comment
-        format.html { redirect_to([@comment.post, @comment], :notice => 'Comment was successfully created.') }
+        #format.html { redirect_to([@comment.post, @comment], :notice => 'Comment was successfully created.') }
+        format.html { redirect_to([@post], :notice => 'Comment was successfully created.') }
       else
         format.html { render :action => "new" }
       end
