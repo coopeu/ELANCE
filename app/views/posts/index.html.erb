@@ -1,31 +1,67 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+  <!-- Content area -->
+  <div class="ui container content">
+    <div class="ui stackable doubling grid">
+      <!-- Middle Content -->
+      <div class="twelve wide column">
+        <div align="center">
+          <div class="ui divider"></div>
+          <div class="ui items">
+<% @posts.each do |post| %>            
+            <div class="item" align="left">
+              <div class="image">
+                <img src="/images/400x400.png">
+              </div>
+              <div class="content">
+                <a class="header"><%= post.title %></a>
+                <div class="meta">
+                  <span><i class="calendar icon"></i> <%= post.created_at.strftime("%m/%d/%Y") %> <i class="tag icon"></i> Javascript <i class="user icon"></i> <%= post.name %></span>
+                </div>
+                <div class="description" align="justify">
+                  <p><%= post.content %></p>
+                </div>
+                <div class="extra">
+                  <div class="ui teal right floated"><%= link_to 'Read More', post, class: 'ui teal small button' %></div>
+                </div>
+              </div>
+            </div><!-- ./item -->
+            <div class="ui divider"></div>
+<% end %>
+          </div><!-- ./items -->
+          <div class="ui divider"></div>
+          <div class="ui buttons">
+            <button class="ui button disabled">Previous</button>
+            <button class="ui teal button">1</button>
+            <button class="ui button">2</button>
+            <button class="ui button">3</button>
+            <button class="ui button">...</button>
+            <button class="ui button">n</button>
+            <button class="ui button">Next</button>
+          </div>
+        </div>
+      </div><!-- ./twelve wide column left-Center Content -->
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+     
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.name %></td>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <!-- Right Sidebar -->
 
-<br>
 
-<%= link_to 'New Post', new_post_path %>
+
+      <div class="four wide column">
+        <div class="ui fluid vertical menu moderns">
+          <a href="" class="header teal item">Category</a>
+          <a href="" class="item">Javascript</a>
+          <a href="" class="item">PHP</a>
+          <a href="" class="item">Angular</a>
+          <a href="" class="item">Semantic-UI</a>
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui segments teal moderns">
+         <%= link_to 'New Post', new_post_path, class: 'ui teal button' %>
+        </div>
+      </div><!-- ./4wide -->
+    </div>
+  </div>
+
+

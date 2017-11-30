@@ -3,7 +3,6 @@
 		<div class="ui stackable doubling grid" style='margin:0; padding:0;'>
 			<!-- Middle Content -->
 			<div class="twelve wide column">
-				<h2 class="ui left aligned gig header">Search</h2>
 				<div align="center">
 					<div class="ui items">
 						
@@ -12,9 +11,9 @@
 							<table class="ui small striped compact teal table">
 							<!-- style='margin:0 0 15 0;padding:0 0 15 0;'>-->
 							  <thead class="ui small striped compact teal table">
-							    <tr><th class="single line"><h4>Title</h4></th>
-							    <th class="single line center aligned"><h5>Location<BR/>
-							    Budget - Category - Author</h5></th>
+							    <tr><th class="single line"><h4><%= link_to 'Title', sort: :name %></h4></th>
+							    <th class="single line center aligned"><h5><%= link_to 'Location', sort: :location %><BR/>
+							    <%= link_to 'Budged', sort: :budget %> - <%= link_to 'Category', sort: :category_id %> - <%= link_to 'Author', sort: :user_id %></h5></th>
 							    <th><h4>Description</h4></th>
 							  </tr></thead>
 							  
@@ -46,11 +45,11 @@
 
 			<div class="four wide compact column">
 
-				<div class="ui teal segments moderns" style='border: 1px solid teal;  border-radius: 5px;margin-bottom:50px;'>
-					<div class="ui header segment">Advanced Search <i class='search icon'></i></div>
-						<div style='border: 3px solid teal;  border-radius: 5px;'>
-							<div class="ui raised teal segment" style='border: 1 teal;'>
-								<%= form_tag advsearch_path, method: :get, class: "ui form" do |f|  %>
+				<div class="ui segments moderns" style='border: 2px solid teal; border-radius: 8px; margin-bottom:50px; background-color: teal;'> 
+					<div class="ui center aligned header segment">Advanced Search &nbsp;&nbsp;<i class='search icon'></i></div>
+						<div class="ui raised segment moderns">
+							<div class='ui form'>
+								<%= form_tag advsearch_path, method: :get do |f|  %>
 								<div class="ui field"><label>Category</label>
 								<%= select_tag :category, options_from_collection_for_select(Category.all, :id, :name, class: '') %></div>
 								<div class="ui field"><label>Search</label>
@@ -59,8 +58,8 @@
 								<%= text_field_tag :location, nil, placeholder: 'Location', class: '' %></div>-->
 								<div><%= submit_tag 'Search', class: "ui teal button" %></div>
 								<% end %>
-							</div><!-- ./segment -->
-					</div>
+						</div><!-- ./form -->		
+					</div><!-- ./segment -->
 				</div><!-- ./segments -->
 				<div class="ui fluid vertical compact menu moderns">
 					<a href="" class="header teal item">Category</a>

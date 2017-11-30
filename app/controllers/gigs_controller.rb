@@ -73,7 +73,7 @@ class GigsController < ApplicationController
   end
 
   def advsearch
-    @gigs = Gig.all.page(params[:page]).per(10)
+    @gigs = Gig.all.page(params[:page]).order(params[:sort]).per(25)
     if params[:category].present?
       @gigs = Gig.where(category_id: params[:category].to_i).page(params[:page]).per(10)
       @gigs = gigs.where('name LIKE ? or description LIKE ? or location LIKE ?',"%#{term}%",'%#{term}%', "%#{term}%").order('created_at DESC').page(params[:page]).per(10) if params[:tearm].present?
