@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 	devise_for :users
 	resources :pages
+	resources :contacts, only: [:new, :create]
 
   resources :posts do
   	resources :comments, except: [:index], controller: 'posts/comments'
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
 	root 'gigs#index'
 
 	get 'home', to: 'pages#home' 
-	#get 'portfolio', to: 'pages#portfolio'
+	get 'contacts', to: 'contacts#create'
 	get 'blog', to: :blog, controller: 'pages'
 	get 'portfolio', to: :portfolio, controller: 'pages'
 	get 'about', to: :about, controller: 'pages'

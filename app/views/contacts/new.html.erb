@@ -1,0 +1,74 @@
+	<div class="ui container">
+	<!-- Content area -->
+	<div class="ui container content">
+		<div class="ui stackable doubling grid">
+			<!-- Middle Content -->
+			<div class="eight wide column">
+				<div class="ui horizontal divider"><h2 class='ui teal header'>Contact</h2></div>
+				<div class='ui items' align='center'>
+					<div class="item">
+					<p>Send a traditional message through this mail form or a traditional snail mail to our address or through the social networks.</p>
+					</div>
+					<div class='ui container' style='width:200px;'>
+						<div class="ui center aligned raised segment" style='border: 2px solid teal; border-radius: 8px; margin-bottom:25px; padding:5; color:teal; width:150;'>
+												<h3>MUFICATA RTDI SL</h3>
+				                12 Jaume Fabra<br>
+				                08004 Barcelona<br>
+				                Catalunya<br>
+				                <abbr title="Phone">P:</abbr> +34 93 185 5301<br>
+				                <abbr title="Mobile">M:</abbr> +34 6222 54458
+						</div>
+					</div>
+				</div>
+				
+	<!-- Content area 2 -->
+
+				<div class="ui teal horizontal divider"><h3 class='ui teal header'>Map</h3></div>
+					<div align='center'>
+				           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2993.983500204154!2d2.157543!3d41.3744432!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8251b3aefedf661d!2sMUFICATA+S.L.!5e0!3m2!1sen!2ses!4v1511003961045" width="400" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+					</div>        
+
+				</div><!-- ./8col -->
+			<!-- Right Sidebar -->
+			<div class="eight wide right aligned column">
+
+				<div class="ui segments moderns" style='border: 2px solid teal; border-radius: 8px; margin-bottom:50px; background-color: teal; margin-left:50px; color:teal;'> 
+					<div class="ui center aligned header segment">Contact us &nbsp;&nbsp;<i class='big mail outline icon'></i></div>
+						<div class="ui left aligned raised segment">
+							<div class='ui form'>
+								<%= form_for @contact do |f|  %>
+								<div class="ui teal field">Your Name
+								<%= f.text_field(:name, required: true, class: '') %></div>
+								<div class="ui teal field">Email
+								<%= f.email_field(:email, required: true, class: '') %></div>
+								<div class="ui teal field">Your message
+								<%= f.text_area :message, class: '' %></div>
+								<div class="ui hidden" style='display:none;'>
+								<%= f.label :nickname %>
+								<%= f.text_field :nickname, hint: 'leave this field blank', class: '' %></div>
+								<p></p>
+								<div align='center'><%= submit_tag 'Send message', class: "ui teal button" %></div>
+								<% end %>
+						</div><!-- ./form -->		
+					</div><!-- ./segment -->
+				</div><!-- ./segments -->
+				<p><br/></p>	
+					<div class="ui horizontal divider"><h3 class='ui teal header'>Social</h3></div>
+					<div class="ui center aligned raised segment">
+						<i class="big square teal facebook square link icon"></i>
+						<i class="big square teal git square link icon"></i>
+						<i class="big square teal google plus square link icon"></i>
+						<i class="big square teal linkedin square link icon"></i>
+						<i class="big square teal skype link icon"></i>
+						<i class="big square teal slideshare link icon"></i>
+						<i class="big square teal twitter square link icon"></i>
+						<i class="big square teal vimeo link icon"></i>
+						<i class="big square teal youtube square link icon"></i>
+					</div>
+
+			</div><!-- ./8col -->
+		</div><!-- ./grid -->
+	</div>
+</div>
+
+	

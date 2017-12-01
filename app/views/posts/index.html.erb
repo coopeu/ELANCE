@@ -14,7 +14,7 @@
                 <img src="/images/400x400.png">
               </div>
               <div class="content">
-                <a class="header"><%= post.title %></a>
+                <a class="header"><%= link_to post.title, post, class: 'ui teal header' %></a>
                 <div class="meta">
                   <span><i class="calendar icon"></i> <%= post.created_at.strftime("%m/%d/%Y") %> <i class="tag icon"></i> Javascript <i class="user icon"></i> <%= post.name %></span>
                 </div>

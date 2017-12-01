@@ -1,3 +1,4 @@
+	<div class="ui container">
 	<!-- Content area -->
 	<div class="ui container content">
 		<div class="ui stackable doubling grid">
@@ -51,32 +52,24 @@
 			<!-- Right Sidebar -->
 
 			<div class="four wide column">
-				<div class="ui segments teal moderns">
-					<div class="ui teal segment">
-						<div class="ui header segment">New Comment</div>
-<%#= form_with url: post_comments_path([@post]) do |f| %>
-<%= form_for ([@post, Comment.new]) do |f| %>
-<%#= form_for ([@post, @comment]) 		<%#= form_for :proposal, url: als_path(@gig) do |f| %>	
-<%#= form_for @comment, url: nts_path(@post), method: |f| %>
-<%#= form_for([@comment.post,  do |f| %>
-<%#= simple_form_for @comment.post, comments_path do |f| %>
-<%#= render 'shared/error_messages', object: f.object %>
-											<%= hidden_field_tag :post_id, @post.id %>
-											<%= f.label :commenter %>
- 											<%= f.text_field :commenter, label: 'commenter', placeholder: "Your name", error: false %><BR />
- 											<label>Comment:</label>
- 											<%= f.text_area :body, label: false, placeholder: "add comment", error: false, rows: 5, columns: 80 %>
- 											<%= f.submit "Submit", class: 'ui teal left floated button' %>
-										  <%#= collection_select(:comment, :post_id, Post.all, :id,:commenter, :body) %>
-										  <%#= submit_tag 'Save' %>
-										<% end %>
-
-
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+				<div class="ui segments moderns" style='border: 2px solid teal; border-radius: 8px; margin-bottom:50px; padding-bottom:20px; /*background-color: teal; */ margin-left:5px; color:teal;'>
+					<div class="ui header segment">
+						<div class="ui header center aligned segment">New Comment</div></div>
+							<div class='ui form' style='padding: 5px 5px 5px 15px;'>
+								<%= form_for ([@post, Comment.new]) do |f| %>
+								<%= hidden_field_tag :post_id, @post.id %>
+								<p><label>Your name:</label>
+								<%= f.text_field :commenter, label: 'Your name', placeholder: "Your name", error: false %></p>
+ 								<p><label>Comment:</label>
+ 								<%= f.text_area :body, label: false, placeholder: "add comment", error: false, rows: 5, columns: 80 %></p>
+ 								<p></p>
+ 								<p><%= f.submit "Submit", class: 'ui teal center aligned button' %><br/></p>
+								<% end %>			
+						</div>
+					</div><!-- ./segments -->
+				</div><!-- ./4col -->
+			</div><!-- ./grid -->
+		</div><!-- ./content -->
+	</div><!-- ./container -->
 
 

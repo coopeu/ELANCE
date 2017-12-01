@@ -5,16 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
-# Use mysql as the database for Active Record
 gem 'mysql2'
-# Use Puma as the app server
-gem 'puma'
-# Use SCSS for stylesheets
 gem 'sass-rails'
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -33,6 +26,8 @@ gem 'devise'
 gem 'semantic-ui-sass'
 gem 'geocoder'
 gem 'kaminari'
+gem 'mail_form'
+gem 'sendgrid-ruby'
 
 
 group :development, :test do
