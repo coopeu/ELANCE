@@ -55,15 +55,18 @@
 				<p><br/></p>	
 					<div class="ui horizontal divider"><h3 class='ui teal header'>Social</h3></div>
 					<div class="ui center aligned raised segment">
-						<i class="big square teal facebook square link icon"></i>
-						<i class="big square teal git square link icon"></i>
-						<i class="big square teal google plus square link icon"></i>
-						<i class="big square teal linkedin square link icon"></i>
-						<i class="big square teal skype link icon"></i>
-						<i class="big square teal slideshare link icon"></i>
-						<i class="big square teal twitter square link icon"></i>
-						<i class="big square teal vimeo link icon"></i>
-						<i class="big square teal youtube square link icon"></i>
+
+	<%= link_to '<i class="big square teal facebook square link icon"></i>'.html_safe, 'https://www.facebook.com/ferran.cabrer.vilagut'.html_safe, target: '_blank' %>  
+	<%= link_to '	<i class="big square teal git square link icon"></i>'.html_safe, 'https://github.com/coopeu?tab=repositories'.html_safe, target: '_blank' %>
+	<i class="big square teal google plus square link icon"></i>
+	<%= link_to '	<i class="big square teal linkedin square link icon"></i>'.html_safe, 'http://www.linkedin.com/profile?viewProfile&amp%3Bkey=32978943'.html_safe, target: '_blank' %>
+	<%= link_to '	<i class="big square teal skype link icon"></i>'.html_safe,'http://skype.com/ferran.cabrer'.html_safe, target: '_blank' %>
+	<%= link_to '	<i class="big square teal slideshare link icon"></i>'.html_safe,'https://www.slideshare.net/consen/presentations'.html_safe, target: '_blank' %>
+	<%= link_to '	<i class="big square teal twitter square link icon"></i>'.html_safe,'http://twitter.com/ferran_cabrer'.html_safe, target: '_blank' %>
+	<%= link_to '	<i class="big square teal vimeo link icon"></i>'.html_safe,'https://vimeo.com/ferrancabrer'.html_safe, target: '_blank' %>
+	<%= link_to '	<i class="big square teal youtube square link icon"></i>'.html_safe,'https://www.youtube.com/user/ferrancabrer'.html_safe, target: '_blank' %>
+
+
 					</div>
 
 			</div><!-- ./8col -->
