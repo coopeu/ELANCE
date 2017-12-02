@@ -27,7 +27,8 @@ gem 'semantic-ui-sass'
 gem 'geocoder'
 gem 'kaminari'
 gem 'mail_form'
-gem 'sendgrid-ruby'
+gem 'paperclip'
+gem 'ckeditor'
 
 
 group :development, :test do
