@@ -11,12 +11,15 @@
 <% @posts.each do |post| %>            
             <div class="item" align="left">
               <div class="image">
-                <img src="/images/400x400.png">
+                <img src="/images/400x400_0.png">
               </div>
               <div class="content">
                 <a class="header"><%= link_to post.title, post, class: 'ui teal header' %></a>
                 <div class="meta">
-                  <span><i class="calendar icon"></i> <%= post.created_at.strftime("%m/%d/%Y") %> <i class="tag icon"></i> Javascript <i class="user icon"></i> <%= post.name %></span>
+                  <span><i class="calendar icon"></i> <%= post.created_at.strftime("%m/%d/%Y") %>
+                    &nbsp;&nbsp; <i class="tag icon"></i> category 
+                    &nbsp;&nbsp; <i class="user icon"></i> <%= post.name %> 
+                    &nbsp;&nbsp; <i class="comments icon"></i><% post.comments.count %></span>
                 </div>
                 <div class="description" align="justify">
                   <p><%= post.content %></p>

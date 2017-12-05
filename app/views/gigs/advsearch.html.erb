@@ -1,3 +1,4 @@
+
 	<!-- Content area -->
 	<div class="ui container content" style='height=80%; width:100%; margin:0; padding:0;'>
 		<div class="ui stackable doubling grid" style='margin:0; padding:0;'>
@@ -5,7 +6,7 @@
 			<div class="twelve wide column">
 				<div align="center">
 					<div class="ui items">
-						
+<%#= render 'layouts/shared/style' %>						
 							<!-- Content area <div class="ui container content" style='margin=5;padding=5;'>-->
 							<!--ui celled padded table-->
 							<table class="ui small striped compact teal table">
@@ -46,27 +47,38 @@
 			<div class="four wide compact column">
 
 				<div class="ui segments moderns" style='border: 2px solid teal; border-radius: 8px; margin-bottom:50px; background-color: teal;'> 
-					<div class="ui center aligned header segment">Advanced Search &nbsp;&nbsp;<i class='search icon'></i></div>
+					<div class="ui center aligned small header segment">Advanced Search &nbsp;&nbsp;<i class='search icon'></i></div>
 						<div class="ui raised segment moderns">
 							<div class='ui form'>
 								<%= form_tag advsearch_path, method: :get do |f|  %>
-								<div class="ui field"><label>Category</label>
-								<%= select_tag :category, options_from_collection_for_select(Category.all, :id, :name, class: '') %></div>
-								<div class="ui field"><label>Search</label>
+								<div class="ui teal field">	<h4><label>Category:
+									<% if(params[:category].present?) %><div style='color:teal;' align=right>
+								<%= Category.find_by_id(params[:category]).name %></div></h4></label>
+									<% end %>
+								<small><%= select_tag :category, options_from_collection_for_select(Category.all, :id, :name, class: '') %></small></div>
+								<div class="ui field"><label>Search text:
+									<% if(params[:term].present?) %><div style='color:teal;' align=right>
+								<%= params[:term].to_s %></div></h4></label>
+								<% end %>
 								<%= text_field_tag :term, nil, placeholder: 'Location', class: '' %></div>
 								<!--<div class="ui field"><label>Location</label>
-								<%= text_field_tag :location, nil, placeholder: 'Location', class: '' %></div>-->
+								<%= text_field_tag :location, nil, placeholder: 'Title, location, some words', class: '' %></div>-->
 								<div><%= submit_tag 'Search', class: "ui teal button" %></div>
 								<% end %>
 						</div><!-- ./form -->		
 					</div><!-- ./segment -->
 				</div><!-- ./segments -->
-				<div class="ui fluid vertical compact menu moderns">
-					<a href="" class="header teal item">Category</a>
-					<a href="" class="item">Javascript</a>
-					<a href="" class="item">PHP</a>
-					<a href="" class="item">Angular</a>
-					<a href="" class="item">Semantic-UI</a>
+				<div class="ui teal divider"></div>
+				<p><br /></p>
+				<!--<h3>Comments:</h3>-->
+					<div class='ui items'>
+						<%#= Gig.comments.each do |c| %>
+						<div class='ui item'>
+							<%#= c.user_id %>
+							<%3#= c.body %>
+						</div><!-- ./item -->
+						<%# end %>
+					</div><!-- ./items -->
 				</div><!-- ./fluid vertical -->
 			</div><!-- ./4wide col -->
 		</div><!-- ./stackable -->

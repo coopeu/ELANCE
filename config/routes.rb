@@ -3,12 +3,17 @@ Rails.application.routes.draw do
 	devise_for :users
 	resources :pages
 	resources :contacts, only: [:new, :create]
+	resources :categories, except: [:show]
 
+  resources :links do
+    resources :comments, except: [:index], controller: 'comments'
+  end
   resources :posts do
   	resources :comments, except: [:index], controller: 'posts/comments'
 	end
   
   resources :gigs do 
+  	resources :comments, except: [:index], controller: 'comments'
 		resources :proposals, except: [:index]
 		collection do
 			get :search

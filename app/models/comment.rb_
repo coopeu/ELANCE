@@ -1,8 +1,8 @@
 class Comment < ApplicationRecord
+  
+  belongs_to :comentable, polymorphic:true #before only posts
 
-	belongs_to :commentable, polymorphic:true #before only posts
-
-	validates :user_id, :presence => true
+	validates :commenter, :presence => true
   validates :body, :presence => true, :length => {:in => 10..255}
 
 end

@@ -30,6 +30,12 @@ gem 'mail_form'
 gem 'paperclip'
 gem 'ckeditor'
 
+gem 'acts_as_votable'
+gem 'simple_form'
+gem 'record_tag_helper'
+gem 'jquery-rails'
+gem 'friendly_id'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

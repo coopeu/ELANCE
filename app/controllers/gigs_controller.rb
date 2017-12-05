@@ -6,16 +6,24 @@ class GigsController < ApplicationController
 
     #helper_method :sort_column, :sort_direction
 
-	def index
-#    @gigs = Gig.search[term].order('created_at DESC').page(params[:page]).per(10)
 
-#    @gigs = if params[:term]
-#OK      @gigs = Gig.search(params[:term]).order('created_at DESC').page(params[:page]).per(25)
-      @gigs = Gig.search(params[:term]).order(params[:sort]).page(params[:page]).per(25)
-#     @gigs = Gig.search(params[:term]).(sort_colum,sort_direction).page(params[:page]).per(25)
-#    else
-#		  @gigs = Gig.all.order('created_at DESC').page(params[:page]).per(25)
-#	  end 
+  def advsearch
+    @gigs = Gig.all.page(params[:page]).order(params[:sort]).per(25)
+    if params[:category].present?
+      @gigs = Gig.where(category_id: params[:category].to_i).page(params[:page]).per(10)
+      @gigs = gigs.where('name LIKE ? or description LIKE ? or location LIKE ?',"%#{term}%",'%#{term}%', "%#{term}%").order('created_at DESC').page(params[:page]).per(10) if params[:tearm].present?
+      @gigs = gigs.near(params[:location], 10).page(params[:page]).per(10) if params[:location].present?
+    else
+      @gigs = Gig.where('name LIKE ? or description LIKE ? or location LIKE ?',"%#{term}%",'%#{term}%', "%#{term}%").order('created_at DESC').page(params[:page]).per(10) if params[:tearm].present?     
+    end
+    @users = User.all
+    @user = User.find_by(:id=>:user_id)
+    @categories = Category.all
+    @category = Category.find_by(:id=>:category_id)
+  end
+
+	def index
+    @gigs = Gig.search(params[:term]).order(params[:sort]).page(params[:page]).per(25)
   end	
 
 	def show
@@ -72,20 +80,6 @@ class GigsController < ApplicationController
     @gigs = Gig.search[term].page(params[:page]).per(10)
   end
 
-  def advsearch
-    @gigs = Gig.all.page(params[:page]).order(params[:sort]).per(25)
-    if params[:category].present?
-      @gigs = Gig.where(category_id: params[:category].to_i).page(params[:page]).per(10)
-      @gigs = gigs.where('name LIKE ? or description LIKE ? or location LIKE ?',"%#{term}%",'%#{term}%', "%#{term}%").order('created_at DESC').page(params[:page]).per(10) if params[:tearm].present?
-      @gigs = gigs.near(params[:location], 10).page(params[:page]).per(10) if params[:location].present?
-    else
-      @gigs = Gig.where('name LIKE ? or description LIKE ? or location LIKE ?',"%#{term}%",'%#{term}%', "%#{term}%").order('created_at DESC').page(params[:page]).per(10) if params[:tearm].present?     
-    end
-    @users = User.all
-    @user = User.find_by(:id=>:user_id)
-    @categories = Category.all
-    @category = Category.find_by(:id=>:category_id)
-  end
 	
 
   private

@@ -4,7 +4,10 @@ class Gig < ActiveRecord::Base
 	belongs_to :category 
 	has_many :abilities
 	has_many :skills, through: :abilities
+	has_many :comments, as: :commentable, dependent: :destroy
 
+	acts_as_votable
+	
 	geocoded_by :location
 	after_validation :geocode
 	#reverse_geocoded_by :latitude, :longitude
