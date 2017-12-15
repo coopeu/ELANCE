@@ -3,7 +3,10 @@
 
 ### BACK 
 - OpenVZ VPS 6GB (London)
-- Debian 8.9
+- Debian GNU/Linux 9.3 (stretch)
+- Kernel: Linux 2.6.32-042stab123.1
+- Architecture: x86-64
+- Static hostname: muficata
 - Apache/2.4.10
 - Phusion-Passenger 5.1.11
 - mysql 14.14 Distrib 5.5.58, for debian-linux-gnu (x86_64) using readline 6.3
